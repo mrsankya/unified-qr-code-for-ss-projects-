@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SS Projects — Founders Portal & Smart QR</title>
+  
+  <!-- SEO & OpenGraph Meta -->
+  <meta name="description" content="SS Projects: Digital Innovation Studio founded by Sanket Bhende & Sakshi Patil. High-conversion 3D websites, smart QR systems & modern web applications.">
+  <meta property="og:title" content="SS Projects — Founders Portal & Smart QR">
+  <meta property="og:description" content="Connect with Sanket Bhende & Sakshi Patil • Creative 3D Web & Full-Stack Studio.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ss-projects.pages.dev">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & QR Code Generator CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-light selection:bg-blue-600 selection:text-white">
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Main Mobile-First Frame -->
+  <div class="max-w-md mx-auto min-h-screen flex flex-col justify-between p-4 pb-24 relative z-10 no-print">
+
+    <!-- Top Utility Bar -->
+    <div class="flex items-center justify-between pt-1 pb-3 text-xs">
+      <div class="flex items-center gap-1.5 font-medium">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-dot"></span>
+        <span class="text-[11px] font-bold tracking-wider text-secondary-text">SS PROJECTS • AVAILABLE</span>
+      </div>
+
+      <!-- Theme Switcher Button -->
+      <button id="portal-theme-btn" onclick="togglePortalTheme()" class="px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-semibold portal-pill transition-all active:scale-95 shadow-sm">
+        <span id="theme-btn-icon">🌙</span>
+        <span id="theme-btn-text">Dark Mode</span>
+      </button>
+    </div>
+
+    <!-- Header & Brand Card -->
+    <header class="text-center pt-2 pb-3">
+      <!-- Avatar / Monogram -->
+      <div class="relative inline-block mb-3">
+        <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 p-0.5 avatar-glow mx-auto flex items-center justify-center rotate-3 hover:rotate-0 transition-transform">
+          <div class="w-full h-full bg-[#0f172a] rounded-2xl flex items-center justify-center overflow-hidden border-2 border-white/20">
+            <span class="text-2xl font-extrabold text-white font-heading tracking-tight">SS</span>
+          </div>
+        </div>
+        <span class="absolute -bottom-1 -right-1 bg-blue-600 text-white text-[10px] font-bold p-1 rounded-full shadow-md border-2 border-white">
+          <i data-lucide="check" class="w-3 h-3"></i>
+        </span>
+      </div>
+
+      <!-- Brand Name & Description -->
+      <h1 class="text-2xl font-extrabold tracking-tight font-heading text-primary-text">
+        SS Projects
+      </h1>
+      <p class="text-xs font-semibold text-blue-600 dark:text-blue-400 mt-0.5 tracking-wide">
+        Digital Innovation Studio & Web Solutions
+      </p>
+      <p class="text-xs text-secondary-text mt-1 max-w-xs mx-auto leading-relaxed">
+        High-conversion 3D websites, smart QR business ecosystems & modern full-stack web applications.
+      </p>
+
+      <!-- Founders Tag -->
+      <div class="flex items-center justify-center gap-2 mt-2.5 text-xs">
+        <span class="portal-pill px-3 py-1 rounded-full flex items-center gap-1.5 text-[11px]">
+          <i data-lucide="users" class="w-3.5 h-3.5 text-blue-500"></i>
+          <span>Co-Founders: <strong>Sakshi Patil</strong> & <strong>Sanket Bhende</strong></span>
+        </span>
+      </div>
+
+      <!-- ========================================================
+           TWO PRIMARY CONTACT BUTTONS (SAKSHI PATIL 1ST)
+           ======================================================== -->
+      <div class="space-y-2 mt-4">
+        <!-- Button 1: Sakshi Patil (Co-Founder - 1st) -->
+        <button onclick="openFounderDrawer('sakshi')" class="w-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 active:scale-95 text-white font-bold py-3 px-4 rounded-2xl flex items-center justify-between priority-glow-btn transition-all text-xs border border-blue-400/30">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center font-bold text-white text-xs flex-shrink-0">
+              SP
+            </div>
+            <div class="text-left">
+              <div class="flex items-center gap-1.5">
+                <span class="text-sm font-extrabold tracking-tight">Contact Sakshi Patil</span>
+                <span class="bg-white/20 text-white font-bold text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">Co-Founder</span>
+              </div>
+              <p class="text-[11px] text-blue-100 font-mono opacity-90">+91 95794 53006 • WhatsApp & Call</p>
+            </div>
+          </div>
+          <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="phone-forwarded" class="w-3.5 h-3.5"></i>
+          </div>
+        </button>
+
+        <!-- Button 2: Sanket Bhende (Founder - 2nd) -->
+        <button onclick="openFounderDrawer('sanket')" class="w-full portal-card border-slate-300 dark:border-slate-700 hover:border-blue-500/50 active:scale-95 text-primary-text font-bold py-3 px-4 rounded-2xl flex items-center justify-between secondary-founder-btn transition-all text-xs">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-xs flex-shrink-0">
+              SB
+            </div>
+            <div class="text-left">
+              <div class="flex items-center gap-1.5">
+                <span class="text-sm font-extrabold tracking-tight">Contact Sanket Bhende</span>
+                <span class="bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold text-[9px] px-1.5 py-0.5 rounded uppercase tracking-wider">Founder</span>
+              </div>
+              <p class="text-[11px] text-secondary-text font-mono">+91 98227 25265 • WhatsApp & Call</p>
+            </div>
+          </div>
+          <div class="w-7 h-7 rounded-full portal-pill flex items-center justify-center text-secondary-text flex-shrink-0">
+            <i data-lucide="phone-forwarded" class="w-3.5 h-3.5"></i>
+          </div>
+        </button>
+      </div>
+
+    </header>
+
+    <!-- Main Navigation & Feature Sections -->
+    <main class="space-y-5 my-1">
+
+      <!-- 1. Detailed Founder Profiles & Connect Hub -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between text-xs px-1">
+          <span class="font-bold text-secondary-text uppercase tracking-wider text-[10px]">Founders & Leadership</span>
+          <span class="text-[11px] text-blue-600 dark:text-blue-400 font-semibold">Verified Direct</span>
+        </div>
+
+        <!-- FOUNDER 1: SAKSHI PATIL (1ST) -->
+        <div class="portal-card p-4 rounded-3xl space-y-3 border-blue-500/30">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-slate-700 to-slate-900 dark:from-slate-600 dark:to-slate-800 flex items-center justify-center text-white font-extrabold text-base shadow-md">
+                SP
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <h3 class="font-extrabold text-sm text-primary-text">Sakshi Patil</h3>
+                  <span class="bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[9px] font-bold px-1.5 py-0.5 rounded">Co-Founder</span>
+                </div>
+                <p class="text-[11px] font-semibold text-blue-600 dark:text-blue-400">Co-Founder & Tech Specialist</p>
+                <p class="text-[10px] text-secondary-text">Computer Science Engineering • Software Systems</p>
+              </div>
+            </div>
+            <a href="tel:+919579453006" class="w-8 h-8 rounded-full bg-blue-600/10 text-blue-600 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" title="Call Sakshi">
+              <i data-lucide="phone-call" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Quick Action Buttons for Sakshi -->
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="https://wa.me/919579453006?text=Hi%20Sakshi,%20I%20visited%20SS%20Projects%20portal%20and%20would%20like%20to%20discuss%20a%20project" target="_blank"
+               class="portal-pill py-2.5 px-3 rounded-xl font-bold flex items-center justify-center gap-2 border-emerald-500/30 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>WhatsApp</span>
+            </a>
+            <a href="tel:+919579453006"
+               class="portal-pill py-2.5 px-3 rounded-xl font-bold flex items-center justify-center gap-2 border-blue-500/30 text-blue-600 dark:text-blue-400 hover:bg-blue-500/10">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              <span>Call Direct</span>
+            </a>
+          </div>
+
+          <!-- 1-Tap Save Sakshi's Contact to Phone & LinkedIn -->
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <button onclick="downloadFounderVCard('sakshi')" class="portal-pill font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 hover:border-blue-400">
+              <i data-lucide="user-plus" class="w-3.5 h-3.5 text-blue-500"></i>
+              <span>Save Contact (.vcf)</span>
+            </button>
+            <a href="https://www.linkedin.com/in/sakshipatil-cse" target="_blank" class="portal-pill font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 hover:border-blue-400 text-blue-600 dark:text-blue-400">
+              <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
+              <span>LinkedIn Profile</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- FOUNDER 2: SANKET BHENDE (2ND) -->
+        <div class="portal-card p-4 rounded-3xl space-y-3">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-base shadow-md">
+                SB
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <h3 class="font-extrabold text-sm text-primary-text">Sanket Bhende</h3>
+                  <span class="bg-blue-600/10 text-blue-600 dark:text-blue-400 text-[9px] font-bold px-1.5 py-0.5 rounded">Founder</span>
+                </div>
+                <p class="text-[11px] font-semibold text-blue-600 dark:text-blue-400">Founder & Web Architect</p>
+                <p class="text-[10px] text-secondary-text">Full-Stack • 3D Creative Dev • Cloud Systems</p>
+              </div>
+            </div>
+            <a href="tel:+919822725265" class="w-8 h-8 rounded-full bg-blue-600/10 text-blue-600 dark:text-blue-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors" title="Call Sanket">
+              <i data-lucide="phone-call" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Quick Action Buttons for Sanket -->
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="https://wa.me/919822725265?text=Hi%20Sanket,%20I%20visited%20SS%20Projects%20portal%20and%20would%20like%20to%20discuss%20a%20project" target="_blank"
+               class="portal-pill py-2.5 px-3 rounded-xl font-bold flex items-center justify-center gap-2 border-emerald-500/30 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>WhatsApp</span>
+            </a>
+            <a href="tel:+919822725265"
+               class="portal-pill py-2.5 px-3 rounded-xl font-bold flex items-center justify-center gap-2 border-blue-500/30 text-blue-600 dark:text-blue-400 hover:bg-blue-500/10">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              <span>Call Direct</span>
+            </a>
+          </div>
+
+          <!-- 1-Tap Save Sanket's Contact to Phone -->
+          <button onclick="downloadFounderVCard('sanket')" class="w-full bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs transition-all shadow-md shadow-blue-500/20">
+            <i data-lucide="user-plus" class="w-4 h-4"></i>
+            <span>Save Sanket's Contact (.vcf)</span>
+          </button>
+
+          <!-- Sanket's Social & Portfolio Links Row -->
+          <div class="grid grid-cols-4 gap-1.5 pt-1 text-[11px]">
+            <a href="mailto:sanketbhende0@gmail.com" class="portal-pill p-2 rounded-xl text-center font-medium flex flex-col items-center justify-center gap-1 hover:border-blue-400" title="Email Sanket">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-500"></i>
+              <span class="text-[9px] truncate">Email</span>
+            </a>
+            <a href="https://www.linkedin.com/in/mrsankya/" target="_blank" class="portal-pill p-2 rounded-xl text-center font-medium flex flex-col items-center justify-center gap-1 hover:border-blue-400" title="LinkedIn">
+              <i data-lucide="linkedin" class="w-3.5 h-3.5 text-blue-600"></i>
+              <span class="text-[9px] truncate">LinkedIn</span>
+            </a>
+            <a href="https://www.instagram.com/sankya.ai" target="_blank" class="portal-pill p-2 rounded-xl text-center font-medium flex flex-col items-center justify-center gap-1 hover:border-pink-400" title="Instagram">
+              <img src="assets/insta_logo.webp" alt="IG" class="w-3.5 h-3.5 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-500" style="display:none;"></i>
+              <span class="text-[9px] truncate">Instagram</span>
+            </a>
+            <a href="https://sanket-portfolio-211.pages.dev/" target="_blank" class="portal-pill p-2 rounded-xl text-center font-bold flex flex-col items-center justify-center gap-1 border-indigo-400/40 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-500/10" title="3D Portfolio">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span class="text-[9px] truncate">3D Portfolio</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Payment / UPI Pill -->
+        <div class="pt-1">
+          <button onclick="openPaymentDrawer()" class="w-full portal-pill p-3 rounded-2xl text-center text-xs font-semibold flex items-center justify-between transition-colors text-emerald-600 dark:text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/10">
+            <div class="flex items-center gap-2">
+              <i data-lucide="wallet" class="w-4 h-4"></i>
+              <span>Pay Advance / Retainer via UPI</span>
+            </div>
+            <span class="text-[11px] font-mono">sanketbhende0@okhdfcbank</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. Services & Expertise Offered -->
+      <div class="space-y-2 pt-1">
+        <div class="flex items-center justify-between text-xs px-1">
+          <span class="font-bold text-secondary-text uppercase tracking-wider text-[10px]">What We Build & Deliver</span>
+          <span class="text-[11px] text-secondary-text">SS Projects Expertise</span>
+        </div>
+
+        <div id="services-container" class="space-y-2">
+          <!-- Populated from portal-data.js -->
+        </div>
+      </div>
+
+      <!-- 3. Featured Portfolio Works -->
+      <div class="space-y-2 pt-1">
+        <div class="flex items-center justify-between text-xs px-1">
+          <div class="flex items-center gap-1.5">
+            <span class="font-bold text-secondary-text uppercase tracking-wider text-[10px]">Featured Client Work</span>
+            <span class="bg-blue-600/10 text-blue-600 dark:text-blue-400 font-bold text-[9px] px-1.5 py-0.5 rounded">Interactive Previews</span>
+          </div>
+          <button onclick="openAllWorksModal()" class="text-[11px] font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1 hover:underline">
+            <span>See All Works (10)</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+
+        <div id="portfolio-container" class="space-y-3">
+          <!-- Populated from portal-data.js -->
+        </div>
+
+        <!-- Callout Banner: Explore All 10 Deployed Websites with Live Embed -->
+        <div class="portal-card p-4 rounded-3xl bg-gradient-to-r from-blue-600/15 via-indigo-600/15 to-purple-600/15 border-blue-500/40 text-center space-y-2.5 mt-2">
+          <div class="flex items-center justify-center gap-1.5 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-dot"></span>
+            <span>10+ Production Deployments Live on Cloudflare</span>
+          </div>
+          <h3 class="font-extrabold text-sm text-primary-text">Experience Our Complete Portfolio</h3>
+          <p class="text-xs text-secondary-text max-w-xs mx-auto">
+            Interact with our 3D web apps, smart QR ecosystems, and multi-page platforms directly inside the portal simulator.
+          </p>
+          <button onclick="openAllWorksModal()" class="w-full bg-slate-900 hover:bg-black dark:bg-blue-600 dark:hover:bg-blue-500 active:scale-95 text-white font-extrabold text-xs py-3 px-4 rounded-2xl flex items-center justify-center gap-2 shadow-lg transition-all">
+            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+            <span>See All Works & Live Interactive Previews (10)</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Banner: Start a Project Together -->
+      <div class="portal-card p-4 rounded-3xl bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-transparent border-blue-500/30 text-center space-y-2">
+        <span class="text-xl">🚀</span>
+        <h3 class="font-bold text-sm text-primary-text">Have a Project in Mind?</h3>
+        <p class="text-xs text-secondary-text max-w-xs mx-auto">
+          Partner with SS Projects to build your next-generation 3D website or custom smart QR ecosystem.
+        </p>
+        <div class="flex gap-2 justify-center pt-1">
+          <a href="https://wa.me/919579453006?text=Hi%20Sakshi,%20we%20have%20a%20project%20requirement%20for%20SS%20Projects" target="_blank" 
+             class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow-md transition-all flex items-center gap-1.5">
+            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+            <span>Talk to Sakshi</span>
+          </a>
+          <a href="https://wa.me/919822725265?text=Hi%20Sanket,%20we%20have%20a%20project%20requirement%20for%20SS%20Projects" target="_blank" 
+             class="portal-pill text-primary-text font-bold text-xs py-2.5 px-4 rounded-xl transition-all flex items-center gap-1.5">
+            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+            <span>Talk to Sanket</span>
+          </a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer Controls -->
+    <footer class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-secondary-text space-y-2">
+      <div class="flex items-center justify-center gap-4 text-[11px]">
+        <button onclick="openPersonalQrModal()" class="text-blue-600 dark:text-blue-400 font-semibold flex items-center gap-1 hover:underline">
+          <i data-lucide="qr-code" class="w-3.5 h-3.5"></i> SS Projects QR
+        </button>
+        <span>•</span>
+        <button onclick="openShareModal()" class="text-secondary-text hover:text-primary-text flex items-center gap-1">
+          <i data-lucide="share-2" class="w-3.5 h-3.5"></i> Share Portal
+        </button>
+      </div>
+      <p>© 2026 SS Projects • Sanket Bhende & Sakshi Patil • All Rights Reserved</p>
+    </footer>
+
+  </div>
+
+  <!-- ========================================================
+       MODAL 1: FOUNDER CONTACT ACTION DRAWER
+       ======================================================== -->
+  <div id="founder-drawer" class="sheet-overlay fixed inset-0 bg-black/70 z-50 flex items-end sm:items-center justify-center p-4 hidden-sheet">
+    <div class="sheet-content sheet-container w-full max-w-sm rounded-3xl p-5 text-center shadow-2xl space-y-4">
+      
+      <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
+        <div class="text-left">
+          <h3 id="drawer-founder-name" class="font-extrabold text-sm text-primary-text">Contact Founder</h3>
+          <p id="drawer-founder-role" class="text-[10px] text-blue-600 dark:text-blue-400 font-semibold">SS Projects</p>
+        </div>
+        <button onclick="closeFounderDrawer()" class="w-7 h-7 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-secondary-text">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Action Options -->
+      <div class="space-y-2 text-left">
+        <!-- WhatsApp -->
+        <a id="drawer-whatsapp-btn" href="#" target="_blank" class="portal-card p-3 rounded-2xl flex items-center justify-between border-emerald-500/30 hover:border-emerald-500 text-emerald-600 dark:text-emerald-400">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <p class="font-bold text-xs text-primary-text">Chat on WhatsApp</p>
+              <p class="text-[10px] text-secondary-text">Instant direct messaging</p>
+            </div>
+          </div>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+
+        <!-- Call -->
+        <a id="drawer-call-btn" href="#" class="portal-card p-3 rounded-2xl flex items-center justify-between border-blue-500/30 hover:border-blue-500 text-blue-600 dark:text-blue-400">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-blue-500/10 flex items-center justify-center">
+              <i data-lucide="phone-call" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <p class="font-bold text-xs text-primary-text">Call Directly</p>
+              <p id="drawer-phone-display" class="text-[10px] text-secondary-text font-mono">+91 00000 00000</p>
+            </div>
+          </div>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+
+        <!-- Save Contact -->
+        <button id="drawer-vcard-btn" onclick="" class="w-full portal-card p-3 rounded-2xl flex items-center justify-between border-slate-300 dark:border-slate-700 hover:border-blue-500 text-left">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <p class="font-bold text-xs text-primary-text">Save Contact to Phone</p>
+              <p class="text-[10px] text-secondary-text">Download .vcf contact card</p>
+            </div>
+          </div>
+          <i data-lucide="download" class="w-4 h-4 text-secondary-text"></i>
+        </button>
+
+        <!-- Copy Number -->
+        <button id="drawer-copy-btn" onclick="" class="w-full portal-card p-3 rounded-2xl flex items-center justify-between border-slate-300 dark:border-slate-700 hover:border-blue-500 text-left">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center">
+              <i data-lucide="copy" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <p id="drawer-copy-text" class="font-bold text-xs text-primary-text">Copy Phone Number</p>
+              <p class="text-[10px] text-secondary-text">Copy digits to clipboard</p>
+            </div>
+          </div>
+          <i data-lucide="check" class="w-4 h-4 text-emerald-500 opacity-0 transition-opacity" id="drawer-copy-check"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL 2: SS PROJECTS QR CODE MODAL
+       ======================================================== -->
+  <div id="personal-qr-modal" class="sheet-overlay fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden-sheet">
+    <div class="sheet-content sheet-container w-full max-w-sm rounded-3xl p-5 text-center shadow-2xl space-y-4">
+      
+      <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
+        <h3 class="font-bold text-sm text-primary-text">Scan SS Projects Digital Card</h3>
+        <button onclick="closePersonalQrModal()" class="w-7 h-7 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-secondary-text">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Printable QR Stand View -->
+      <div class="bg-white p-4 rounded-2xl inline-block shadow-lg border border-slate-200">
+        <div id="personal-qrcode-container" class="flex justify-center items-center"></div>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-sm text-primary-text">SS Projects</h4>
+        <p class="text-xs text-secondary-text mt-0.5">Sanket Bhende & Sakshi Patil</p>
+        <p class="text-[10px] text-blue-600 dark:text-blue-400 mt-1 font-mono">https://ss-projects.pages.dev</p>
+      </div>
+
+      <div class="flex gap-2 pt-1">
+        <button onclick="window.print()" class="flex-1 bg-slate-900 dark:bg-blue-600 text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+          <span>Print QR Card</span>
+        </button>
+        <button onclick="copyPortalLink()" class="flex-1 portal-pill font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          <span id="copy-portal-text">Copy Link</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL 3: UPI ADVANCE / PAYMENT DRAWER
+       ======================================================== -->
+  <div id="payment-modal" class="sheet-overlay fixed inset-0 bg-black/70 z-50 flex items-end sm:items-center justify-center hidden-sheet">
+    <div class="sheet-content sheet-container w-full max-w-md sm:rounded-3xl rounded-t-3xl p-5 text-center shadow-2xl space-y-4">
+      
+      <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
+            <i data-lucide="wallet" class="w-4 h-4"></i>
+          </div>
+          <div class="text-left">
+            <h3 class="font-bold text-sm text-primary-text">Pay Advance / Invoicing</h3>
+            <p class="text-[10px] text-secondary-text">Zero surcharge • Direct UPI Transfer</p>
+          </div>
+        </div>
+        <button onclick="closePaymentDrawer()" class="w-7 h-7 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-secondary-text">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Merchant Info -->
+      <div class="portal-pill p-3 rounded-2xl flex items-center justify-between text-left">
+        <div>
+          <p class="text-[10px] text-secondary-text">Beneficiary</p>
+          <p class="font-bold text-xs text-primary-text">Sanket Bhende (SS Projects)</p>
+          <p class="text-xs text-blue-600 dark:text-blue-400 font-mono mt-0.5">sanketbhende0@okhdfcbank</p>
+        </div>
+        <button onclick="copyUpiId()" class="px-2.5 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold">
+          <span id="copy-upi-label">Copy</span>
+        </button>
+      </div>
+
+      <!-- Amount input & chips -->
+      <div class="text-left space-y-1.5">
+        <label class="text-xs font-semibold text-secondary-text">Enter Amount (₹)</label>
+        <div class="relative">
+          <span class="absolute left-3.5 top-2.5 text-secondary-text font-bold">₹</span>
+          <input type="number" id="portal-amount-input" oninput="updatePortalUpiQR()" placeholder="0" 
+                 class="w-full bg-slate-100 dark:bg-slate-800 text-primary-text font-bold rounded-xl pl-8 pr-4 py-2 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-blue-500 text-base">
+        </div>
+        <div class="flex gap-2 text-xs">
+          <button onclick="setAmount(1000)" class="flex-1 py-1 portal-pill rounded-lg font-medium">₹1,000</button>
+          <button onclick="setAmount(5000)" class="flex-1 py-1 portal-pill rounded-lg font-medium">₹5,000</button>
+          <button onclick="setAmount(10000)" class="flex-1 py-1 portal-pill rounded-lg font-medium">₹10,000</button>
+          <button onclick="setAmount('')" class="flex-1 py-1 portal-pill rounded-lg text-rose-500 font-medium">Clear</button>
+        </div>
+      </div>
+
+      <!-- Generated UPI QR -->
+      <div class="bg-white p-3.5 rounded-2xl inline-block shadow-md border border-slate-200 mx-auto">
+        <div id="portal-upi-qrcode" class="flex justify-center items-center"></div>
+      </div>
+      <p class="text-[11px] text-secondary-text">Supports GPay, PhonePe, Paytm & any BHIM UPI App</p>
+
+      <!-- Direct App Launch Button -->
+      <a id="portal-upi-intent-link" href="#" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-all text-xs">
+        <i data-lucide="zap" class="w-4 h-4"></i>
+        <span>Pay with UPI App Directly</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL 4: ALL PRODUCTION WORKS DIRECTORY (10 DEPLOYED SITES)
+       ======================================================== -->
+  <div id="all-works-modal" class="sheet-overlay fixed inset-0 bg-black/80 z-50 flex items-end sm:items-center justify-center p-2 sm:p-4 hidden-sheet">
+    <div class="sheet-content sheet-container w-full max-w-xl max-h-[92vh] flex flex-col rounded-3xl p-5 shadow-2xl space-y-3 overflow-hidden">
+      
+      <!-- Header -->
+      <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800 flex-shrink-0">
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 class="font-extrabold text-base text-primary-text">SS Projects Production Directory</h3>
+            <span class="bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full">10 Live Deployments</span>
+          </div>
+          <p class="text-xs text-secondary-text mt-0.5">Explore our deployed 3D websites, smart QR systems & web applications</p>
+        </div>
+        <button onclick="closeAllWorksModal()" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center text-secondary-text hover:text-primary-text">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 flex-shrink-0 text-xs">
+        <button onclick="filterAllWorks('all')" class="filter-pill active px-3 py-1.5 rounded-xl font-bold portal-pill transition-all" data-category="all">All (10)</button>
+        <button onclick="filterAllWorks('3D & Interactive')" class="filter-pill px-3 py-1.5 rounded-xl font-bold portal-pill transition-all" data-category="3D & Interactive">3D & Interactive</button>
+        <button onclick="filterAllWorks('Smart QR Systems')" class="filter-pill px-3 py-1.5 rounded-xl font-bold portal-pill transition-all" data-category="Smart QR Systems">Smart QR</button>
+        <button onclick="filterAllWorks('Full-Stack Web App')" class="filter-pill px-3 py-1.5 rounded-xl font-bold portal-pill transition-all" data-category="Full-Stack Web App">Full-Stack</button>
+        <button onclick="filterAllWorks('Multi-Page Architecture')" class="filter-pill px-3 py-1.5 rounded-xl font-bold portal-pill transition-all" data-category="Multi-Page Architecture">Architecture</button>
+        <button onclick="filterAllWorks('Multi-Page Experience')" class="filter-pill px-3 py-1.5 rounded-xl font-bold portal-pill transition-all" data-category="Multi-Page Experience">Multi-Page</button>
+      </div>
+
+      <!-- Project List Container -->
+      <div id="all-works-list" class="flex-1 overflow-y-auto space-y-3 pr-1">
+        <!-- Rendered dynamically from ALL_PROJECTS_DATA in app.js -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       MODAL 5: INTERACTIVE LIVE EMBED VIEWER (DEVICE SIMULATOR)
+       ======================================================== -->
+  <div id="live-embed-modal" class="embed-modal-overlay hidden-sheet">
+    <!-- Top Bar -->
+    <div class="h-14 bg-slate-900 border-b border-slate-800 px-4 flex items-center justify-between text-white z-10 flex-shrink-0">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-xs flex-shrink-0">
+          SS
+        </div>
+        <div class="min-w-0">
+          <h4 id="embed-title" class="font-bold text-xs truncate">Website Preview</h4>
+          <p id="embed-domain" class="text-[10px] text-blue-400 font-mono truncate">https://domain.pages.dev</p>
+        </div>
+      </div>
+
+      <!-- Device Mode & Controls -->
+      <div class="flex items-center gap-2">
+        <div class="hidden sm:flex items-center bg-slate-800 p-0.5 rounded-xl text-xs font-semibold text-slate-300">
+          <button id="btn-device-mobile" onclick="setEmbedDevice('mobile')" class="px-2.5 py-1 rounded-lg bg-blue-600 text-white flex items-center gap-1 transition-all">
+            <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+            <span>Mobile</span>
+          </button>
+          <button id="btn-device-desktop" onclick="setEmbedDevice('desktop')" class="px-2.5 py-1 rounded-lg hover:text-white flex items-center gap-1 transition-all">
+            <i data-lucide="monitor" class="w-3.5 h-3.5"></i>
+            <span>Desktop</span>
+          </button>
+        </div>
+
+        <button onclick="refreshEmbedIframe()" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors" title="Reload Website">
+          <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+        </button>
+
+        <button onclick="openEmbedInNewTab()" class="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 font-bold text-xs flex items-center gap-1.5 shadow transition-all" title="Open in Full Tab">
+          <span>Open Live</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </button>
+
+        <button onclick="closeLiveEmbed()" class="p-2 rounded-xl bg-slate-800 hover:bg-rose-600 text-slate-300 hover:text-white transition-colors" title="Close Preview">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Frame Body -->
+    <div class="flex-1 flex items-center justify-center p-2 sm:p-4 overflow-hidden relative">
+      <!-- Loading Spinner -->
+      <div id="embed-loader" class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-slate-950/70 z-10 transition-opacity">
+        <div class="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        <p class="text-xs text-slate-300 font-medium font-mono">Loading live Cloudflare site...</p>
+      </div>
+
+      <!-- Device Shell -->
+      <div id="embed-device-container" class="device-frame-mobile relative">
+        <iframe id="embed-iframe" src="" class="embed-iframe" onload="hideEmbedLoader()" allow="fullscreen; accelerometer; gyroscope" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+      </div>
+    </div>
+
+    <!-- Bottom Hint -->
+    <div class="h-8 bg-slate-950/90 border-t border-slate-900 px-4 flex items-center justify-between text-[11px] text-slate-400 flex-shrink-0">
+      <span class="flex items-center gap-1.5">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span>Fully Interactive: Tap, scroll & experience live 3D physics & menus</span>
+      </span>
+      <span class="font-mono text-emerald-400 flex items-center gap-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span>
+        <span>Cloudflare Pages Edge Active</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="portal-toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white font-bold px-4 py-2 rounded-full shadow-2xl text-xs flex items-center gap-1.5 transition-all opacity-0 pointer-events-none transform -translate-y-2">
+    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+    <span id="portal-toast-msg">Copied!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="portal-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+/* =========================================================
+   Personal Unified Portal - Styling & Design System
+   Sanket Bhende • Digital Business Card & Service Hub
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --primary-accent: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.25);
+  --bg-light: #f8fafc;
+  --card-light: #ffffff;
+  --border-light: #e2e8f0;
+  --text-main-light: #0f172a;
+  --text-muted-light: #64748b;
+  
+  --bg-dark: #0a0b10;
+  --card-dark: rgba(18, 20, 30, 0.85);
+  --border-dark: rgba(255, 255, 255, 0.08);
+  --text-main-dark: #f8fafc;
+  --text-muted-dark: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* =========================================================
+   LIGHT / MINIMALIST STUDIO MODE (DEFAULT)
+   ========================================================= */
+body.theme-light {
+  background-color: var(--bg-light);
+  color: var(--text-main-light);
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.04) 0%, transparent 40%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+}
+
+body.theme-light .portal-card {
+  background: var(--card-light);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+body.theme-light .portal-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 25px -4px rgba(0, 0, 0, 0.08);
+}
+
+body.theme-light .portal-pill {
+  background: #f1f5f9;
+  border: 1px solid var(--border-light);
+  color: #334155;
+}
+
+body.theme-light .portal-pill:hover {
+  background: #e2e8f0;
+}
+
+body.theme-light .text-primary-text {
+  color: #0f172a;
+}
+
+body.theme-light .text-secondary-text {
+  color: #64748b;
+}
+
+body.theme-light .sheet-container {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #0f172a;
+}
+
+/* =========================================================
+   DARK / CYBER NEON MODE
+   ========================================================= */
+body.theme-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-main-dark);
+  background-image: 
+    radial-gradient(circle at 20% 15%, rgba(37, 99, 235, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(16, 185, 129, 0.1) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(10, 11, 16, 1) 0%, rgba(5, 6, 9, 1) 100%);
+  background-attachment: fixed;
+}
+
+body.theme-dark .portal-card {
+  background: var(--card-dark);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-dark);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.theme-dark .portal-card:hover {
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 12px 35px -5px rgba(37, 99, 235, 0.35);
+}
+
+body.theme-dark .portal-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+body.theme-dark .portal-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(37, 99, 235, 0.5);
+}
+
+body.theme-dark .text-primary-text {
+  color: #f8fafc;
+}
+
+body.theme-dark .text-secondary-text {
+  color: #94a3b8;
+}
+
+body.theme-dark .sheet-container {
+  background: #11131c;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+}
+
+/* Priority Founder Card & Badges */
+.founder-card-priority {
+  border-color: rgba(37, 99, 235, 0.4) !important;
+  box-shadow: 0 4px 20px -2px rgba(37, 99, 235, 0.15) !important;
+  position: relative;
+}
+
+body.theme-dark .founder-card-priority {
+  border-color: rgba(59, 130, 246, 0.45) !important;
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.25) !important;
+}
+
+.priority-glow-btn {
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+  transition: all 0.2s ease-in-out;
+}
+
+.priority-glow-btn:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+  transform: translateY(-1px);
+}
+
+.secondary-founder-btn {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.secondary-founder-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Transitions & Micro-Interactions */
+.interactive-tap {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-tap:active {
+  transform: scale(0.975);
+}
+
+/* Avatar Glow Ring */
+@keyframes avatarPulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(37, 99, 235, 0.7);
+  }
+}
+
+.avatar-glow {
+  animation: avatarPulse 3.5s infinite ease-in-out;
+}
+
+/* Pulse dot animation */
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.6; }
+}
+
+.pulse-dot {
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+/* Modals / Drawers */
+.sheet-overlay {
+  transition: opacity 0.25s ease-out;
+}
+
+.sheet-content {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease-out;
+}
+
+.sheet-overlay.hidden-sheet {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sheet-overlay.hidden-sheet .sheet-content {
+  transform: translateY(100%);
+}
+
+@media (min-width: 640px) {
+  .sheet-overlay.hidden-sheet .sheet-content {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+body.theme-dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* =========================================================
+   LIVE EMBED & DEVICE SIMULATOR MODAL
+   ========================================================= */
+.embed-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s ease;
+}
+
+.embed-modal-overlay.hidden-sheet {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.device-frame-mobile {
+  width: 100%;
+  max-width: 410px;
+  height: calc(100vh - 120px);
+  max-height: 840px;
+  margin: 0 auto;
+  border-radius: 36px;
+  border: 8px solid #1e293b;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  background: #000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.device-frame-desktop {
+  width: 100%;
+  max-width: 1200px;
+  height: calc(100vh - 120px);
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  background: #000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.embed-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #ffffff;
+}
+
+/* Filter pills active state */
+.filter-pill.active {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #2563eb !important;
+}
+
+/* Print Styles for Digital Business Card */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  #printable-card-section {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .printable-business-card {
+    border: 2px solid #000000 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+  }
+}
