@@ -1,9 +1,9 @@
 /* =========================================================
-   SS PROJECTS — APPLICATION CONTROLLER
+   SAS PROJECTS & TECH SOLUTIONS — APPLICATION CONTROLLER
    Founders: Sanket Bhende & Sakshi Patil
    ========================================================= */
 
-let portalTheme = localStorage.getItem("ss_projects_theme") || "light";
+let portalTheme = localStorage.getItem("sas_projects_theme") || localStorage.getItem("ss_projects_theme") || "light";
 let portalUpiQr = null;
 let personalStandQr = null;
 let activeFounderForDrawer = "sanket";
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPortfolio();
   initLucide();
   initAntiInspect();
+  initAdPopup();
 });
 
 function initLucide() {
@@ -46,7 +47,7 @@ function applyTheme(theme) {
 
 function togglePortalTheme() {
   const nextTheme = portalTheme === "light" ? "dark" : "light";
-  localStorage.setItem("ss_projects_theme", nextTheme);
+  localStorage.setItem("sas_projects_theme", nextTheme);
   applyTheme(nextTheme);
 }
 
@@ -122,6 +123,7 @@ function openFounderDrawer(founderId) {
   
   const nameEl = document.getElementById("drawer-founder-name");
   const roleEl = document.getElementById("drawer-founder-role");
+  const imgEl = document.getElementById("drawer-founder-img");
   const phoneDisplayEl = document.getElementById("drawer-phone-display");
   const whatsappBtn = document.getElementById("drawer-whatsapp-btn");
   const callBtn = document.getElementById("drawer-call-btn");
@@ -129,17 +131,22 @@ function openFounderDrawer(founderId) {
   const copyBtn = document.getElementById("drawer-copy-btn");
   const copyText = document.getElementById("drawer-copy-text");
 
+  if (imgEl) {
+    imgEl.src = isSanket ? "assets/sanket_bhende.jpeg" : "assets/sakshi_patil.jpg";
+    imgEl.alt = isSanket ? "Sanket Bhende" : "Sakshi Patil";
+  }
+
   if (isSanket) {
     nameEl.innerHTML = `Sanket Bhende <span class="bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold text-[9px] px-1.5 py-0.5 rounded uppercase ml-1">Founder</span>`;
-    roleEl.innerText = "Founder & Web Architect • SS Projects";
+    roleEl.innerText = "Founder & Web Architect • SAS Projects & Tech Solutions";
     phoneDisplayEl.innerText = "+91 98227 25265";
-    whatsappBtn.href = "https://wa.me/919822725265?text=Hi%20Sanket,%20I%20visited%20SS%20Projects%20portal%20and%20would%20like%20to%20discuss%20a%20project";
+    whatsappBtn.href = "https://wa.me/919822725265?text=Hi%20Sanket,%20I%20visited%20SAS%20Projects%20and%20Tech%20Solutions%20portal%20and%20would%20like%20to%20discuss%20a%20project";
     callBtn.href = "tel:+919822725265";
   } else {
     nameEl.innerHTML = `Sakshi Patil <span class="bg-blue-500/10 text-blue-600 dark:text-blue-400 font-bold text-[9px] px-1.5 py-0.5 rounded uppercase ml-1">Co-Founder</span>`;
-    roleEl.innerText = "Co-Founder & Tech Specialist • SS Projects";
+    roleEl.innerText = "Co-Founder & Tech Specialist • SAS Projects & Tech Solutions";
     phoneDisplayEl.innerText = "+91 95794 53006";
-    whatsappBtn.href = "https://wa.me/919579453006?text=Hi%20Sakshi,%20I%20visited%20SS%20Projects%20portal%20and%20would%20like%20to%20discuss%20a%20project";
+    whatsappBtn.href = "https://wa.me/919579453006?text=Hi%20Sakshi,%20I%20visited%20SAS%20Projects%20and%20Tech%20Solutions%20portal%20and%20would%20like%20to%20discuss%20a%20project";
     callBtn.href = "tel:+919579453006";
   }
 
@@ -184,7 +191,7 @@ function downloadFounderVCard(founderId) {
 VERSION:3.0
 N:Bhende;Sanket;;;
 FN:Sanket Bhende
-ORG:SS Projects
+ORG:SAS Projects & Tech Solutions
 TITLE:Founder & Web Architect
 TEL;TYPE=CELL,VOICE;TYPE=pref:+919822725265
 EMAIL;TYPE=INTERNET,PREF:sanketbhende0@gmail.com
@@ -192,24 +199,24 @@ URL:https://sanket-portfolio-211.pages.dev/
 X-SOCIALPROFILE;type=linkedin:https://www.linkedin.com/in/mrsankya/
 X-SOCIALPROFILE;type=instagram:https://www.instagram.com/sankya.ai
 ADR;TYPE=WORK:;;Maharashtra;;;India
-NOTE:Founder at SS Projects. High-Conversion 3D Websites, Smart QR Systems & Modern Web Apps.
+NOTE:Founder at SAS Projects & Tech Solutions. High-Conversion 3D Websites, Smart QR Systems & Modern Tech Solutions.
 END:VCARD`;
-    filename = "Sanket_Bhende_SS_Projects.vcf";
+    filename = "Sanket_Bhende_SAS_Projects.vcf";
   } else {
     vcard = 
 `BEGIN:VCARD
 VERSION:3.0
 N:Patil;Sakshi;;;
 FN:Sakshi Patil
-ORG:SS Projects
+ORG:SAS Projects & Tech Solutions
 TITLE:Co-Founder & Tech Specialist
 TEL;TYPE=CELL,VOICE;TYPE=pref:+919579453006
 URL:https://www.linkedin.com/in/sakshipatil-cse
 X-SOCIALPROFILE;type=linkedin:https://www.linkedin.com/in/sakshipatil-cse
 ADR;TYPE=WORK:;;Maharashtra;;;India
-NOTE:Co-Founder at SS Projects. Computer Science Engineering & Software Architecture.
+NOTE:Co-Founder at SAS Projects & Tech Solutions. Computer Science Engineering & Software Architecture.
 END:VCARD`;
-    filename = "Sakshi_Patil_SS_Projects.vcf";
+    filename = "Sakshi_Patil_SAS_Projects.vcf";
   }
 
   const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8;" });
@@ -292,7 +299,7 @@ function copyUpiId() {
 }
 
 // ---------------------------------------------------------
-// SS Projects Digital QR Card Generator
+// SAS Projects & Tech Solutions Digital QR Card Generator
 // ---------------------------------------------------------
 function openPersonalQrModal() {
   const portalUrl = PORTAL_CONFIG.livePortalUrl || window.location.href;
@@ -319,7 +326,7 @@ function copyPortalLink() {
   navigator.clipboard.writeText(portalUrl).then(() => {
     const copyText = document.getElementById("copy-portal-text");
     if (copyText) copyText.innerText = "Link Copied!";
-    showPortalToast("SS Projects portal link copied!");
+    showPortalToast("SAS Projects & Tech Solutions portal link copied!");
     setTimeout(() => {
       if (copyText) copyText.innerText = "Copy Link";
     }, 2000);
@@ -330,13 +337,51 @@ function openShareModal() {
   const portalUrl = PORTAL_CONFIG.livePortalUrl || window.location.href;
   if (navigator.share) {
     navigator.share({
-      title: "SS Projects — Founders Portal & Smart QR",
-      text: "Connect with Sanket Bhende & Sakshi Patil • SS Projects 3D Web & Digital Agency",
+      title: "SAS Projects & Tech Solutions — Founders Portal & Smart QR",
+      text: "Connect with Sanket Bhende & Sakshi Patil • SAS Projects & Tech Solutions 3D Web & Digital Agency",
       url: portalUrl
     }).catch(() => {});
   } else {
     copyPortalLink();
   }
+}
+
+// ---------------------------------------------------------
+// Popup Ad Banner Modal (SAS Projects & Tech Solutions)
+// Always shows every time the website is opened or refreshed
+// ---------------------------------------------------------
+function initAdPopup() {
+  // Always open ad modal and lock scroll on every page load/refresh
+  openAdPopup();
+
+  // Also handle bfcache / back-forward restore or re-navigation
+  window.addEventListener("pageshow", () => {
+    openAdPopup();
+  });
+
+  // Close ad modal when Escape key is pressed
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeAdPopup();
+    }
+  });
+}
+
+function openAdPopup() {
+  const modal = document.getElementById("ad-popup-modal");
+  if (!modal) return;
+  modal.classList.remove("hidden-ad");
+  document.body.style.overflow = "hidden";
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
+function closeAdPopup() {
+  const modal = document.getElementById("ad-popup-modal");
+  if (!modal) return;
+  modal.classList.add("hidden-ad");
+  document.body.style.overflow = "";
 }
 
 // ---------------------------------------------------------

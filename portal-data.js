@@ -1,18 +1,18 @@
 // =========================================================================
-// SS PROJECTS — UNIFIED DIGITAL PORTAL & SMART QR SYSTEM DATA
+// SAS PROJECTS & TECH SOLUTIONS — UNIFIED DIGITAL PORTAL & SMART QR SYSTEM DATA
 // Founders: Sanket Bhende (Lead Architect) & Sakshi Patil (Tech Specialist)
 // =========================================================================
 
 const PORTAL_CONFIG = {
-  brandName: "SS Projects",
-  brandBadge: "Digital Studio & Web Agency",
-  tagline: "High-Conversion 3D Websites, Smart QR Systems & Next-Gen Web Apps",
-  bio: "We craft immersive 3D digital experiences, table-to-cloud QR ecosystems, and custom full-stack solutions that accelerate modern brands.",
+  brandName: "SAS Projects & Tech Solutions",
+  brandBadge: "Digital Studio & Tech Solutions",
+  tagline: "High-Conversion 3D Websites, Smart QR Systems & Next-Gen Tech Solutions",
+  bio: "We craft immersive 3D digital experiences, table-to-cloud QR ecosystems, and custom tech solutions that accelerate modern brands.",
   location: "Maharashtra, India • Global Remote",
   availability: "Available for New Projects & Collaborations",
   livePortalUrl: "https://ss-projects.pages.dev",
   upiId: "sanketbhende0@okhdfcbank",
-  upiName: "Sanket Bhende (SS Projects)",
+  upiName: "Sanket Bhende (SAS Projects & Tech Solutions)",
   portfolioUrl: "https://sanket-portfolio-211.pages.dev/",
 
   // Two Founders (Sakshi Patil first, Sanket Bhende Founder)
@@ -30,6 +30,7 @@ const PORTAL_CONFIG = {
       instagram: "",
       instagramHandle: "",
       portfolio: "",
+      image: "assets/sakshi_patil.jpg",
       badge: "Co-Founder"
     },
     {
@@ -45,6 +46,7 @@ const PORTAL_CONFIG = {
       instagram: "https://www.instagram.com/sankya.ai",
       instagramHandle: "@sankya.ai",
       portfolio: "https://sanket-portfolio-211.pages.dev/",
+      image: "assets/sanket_bhende.jpeg",
       badge: "Founder"
     }
   ]

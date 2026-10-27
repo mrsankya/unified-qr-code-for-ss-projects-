@@ -7,8 +7,8 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-PROJECT_DIR = Path(r"C:\Users\sanke\3D websites\personal unified portal")
-PROJECT_NAME = "ss-projects"
+PROJECT_DIR = Path(__file__).resolve().parent
+PROJECT_NAME = os.environ.get("CF_PAGES_PROJECT", "ss-projects")
 
 ENV = os.environ.copy()
 ENV["CLOUDFLARE_ACCOUNT_ID"] = "0fbadd932cb4ec64fe049a68da13c315"

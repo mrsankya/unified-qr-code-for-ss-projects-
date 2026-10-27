@@ -1,11 +1,13 @@
-# SS Projects Unified Portal & Smart QR — Gemini Memory
+# SAS Projects & Tech Solutions Unified Portal & Smart QR — Gemini Memory
 
 ## Directory
-`C:\Users\sanke\3D websites\personal unified portal`
+`C:\Users\sanke\ss projects`
 
 ## Brand Identity & Agency
-- **Brand:** **SS Projects** (Digital Innovation Studio & Web Solutions)
-- **Tagline:** High-Conversion 3D Websites, Smart QR Systems & Next-Gen Web Apps
+- **Brand:** **SAS Projects & Tech Solutions** (Digital Innovation Studio & Tech Solutions)
+- **Monogram:** **SAS**
+- **Tagline:** High-Conversion 3D Websites, Smart QR Systems & Next-Gen Tech Solutions
+- **Previous Name:** SS Projects (Converted to SAS Projects and Tech Solutions)
 
 ## Assigned Port & Deployment
 - **Port:** `5685`
@@ -54,3 +56,8 @@
    - Minimalist Studio Light (Default) + Cyber Neon / Dark Mode toggle.
 10. **Anti-Inspect Lock:**
    - Right-click and DevTools keyboard shortcuts disabled.
+11. **🎉 Popup Ad Banner (SS Projects Digital Solutions Agency):**
+   - Displays every single time the website is opened or refreshed (zero storage locks, immediate display on initial render, load, and pageshow).
+   - Features `SS Projects_ Digital Solutions Agency.png` in a responsive, glassmorphic modal with glowing backdrop.
+   - Dismissable via prominent top-right cross button (`X`), outer backdrop click, Escape key, or bottom "Continue to Portal" button.
+   - Quick "Agency Ad" trigger button integrated in the top utility bar to re-open the poster anytime.
