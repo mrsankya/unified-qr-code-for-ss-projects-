@@ -13,11 +13,14 @@
     - Role: Founder & Web Architect
 - **Root Directory:** `C:\Users\sanke\ss projects`
 - **Assigned Local Port:** `5685` (`http://localhost:5685`)
-- **Cloudflare Pages Production Domain:** `https://ss-projects.pages.dev`
-- **Custom Subdomains Configured:**
-  - `https://ss-projects.skillpods.in` (Pending CNAME to `ss-projects.pages.dev`)
-  - `https://sas-projects.skillpods.in` (Pending CNAME to `ss-projects.pages.dev`)
-- **Google Site Verification Token:** `Yo0eARvrFOe_ifoeq3g2xa2D1HNS-lgSUfX7lIaPsqY` (Live on `https://ss-projects.pages.dev/`)
+
+## All Active Production Links (All 200 OK with SSL)
+1. **Main Custom Domain:** [https://sas-projects.skillpods.in](https://sas-projects.skillpods.in)
+2. **Short Custom Subdomain:** [https://ss-projects.skillpods.in](https://ss-projects.skillpods.in)
+3. **Cloudflare Pages Production URL:** [https://ss-projects.pages.dev](https://ss-projects.pages.dev)
+4. **Google Search Console Verification:** [https://ss-projects.pages.dev/google1f0be2cf89ef0d93.html](https://ss-projects.pages.dev/google1f0be2cf89ef0d93.html)
+5. **Search Engine Sitemap:** [https://sas-projects.skillpods.in/sitemap.xml](https://sas-projects.skillpods.in/sitemap.xml)
+6. **Robots File:** [https://sas-projects.skillpods.in/robots.txt](https://sas-projects.skillpods.in/robots.txt)
 - **UPI Beneficiary:** `Sanket Bhende (SAS Projects & Tech Solutions)` — `sanketbhende0@okhdfcbank`
 
 ## Service Offerings & Tag Clusters
